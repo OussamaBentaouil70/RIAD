@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riad Azahar — Marrakech Medina</title>
+<meta name="description" content="A seven-suite private sanctuary in the Medina of Marrakech. Quiet luxury, Tadelakt walls, and slow living.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          canvas: '#FFFFFF',
+          plaster: '#FDFBF9',
+          ink: '#161616',
+          brass: '#C5A880',
+          hairline: '#EAE7E1',
+          muted: '#6b6761',
+        },
+        fontFamily: {
+          display: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
+<style type="text/tailwindcss">
+  :root{
+    --canvas: #FFFFFF;
+    --plaster: #FDFBF9;
+    --ink: #161616;
+    --brass: #C5A880;
+    --hairline: #EAE7E1;
+    --muted: #6b6761;
+    --su: 20px;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: #161616;
+    background: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.65;
+  }
+  .display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    font-size: 0.72rem;
+    color: #6b6761;
+  }
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    border: 1px solid #161616;
+    background: transparent;
+    color: #161616;
+    padding: 16px 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-size: 0.72rem;
+    font-weight: 500;
+    transition: all 0.35s cubic-bezier(.2,.8,.2,1);
+  }
+  .btn-primary:hover {
+    background: #161616;
+    color: #fff;
+  }
+  .btn-primary.brass {
+    border-color: #C5A880;
+    color: #161616;
+  }
+  .btn-primary.brass:hover {
+    background: #C5A880;
+    color: #fff;
+    border-color: #C5A880;
+  }
+  .link-fine {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+    transition: color .3s ease;
+  }
+  .link-fine::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: #161616;
+    transition: width .35s ease, background-color .3s ease;
+  }
+  .link-fine:hover {
+    color: #C5A880;
+  }
+  .link-fine:hover::after {
+    width: 42%;
+    background: #C5A880;
+  }
+  .hairline { border-color: #EAE7E1; }
+  .input-minimal {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #D7D2C9;
+    padding: 14px 2px;
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: #161616;
+    outline: none;
+    transition: border-color .25s ease;
+  }
+  .input-minimal::placeholder { color: #9a9590; }
+  .input-minimal:focus { border-bottom-color: #C5A880; }
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .85s ease, transform .85s ease;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Thin, tasteful scrollbar */
+  ::selection { background: rgba(197,168,128,.22); }
+  @media (min-width: 1024px){
+    .hero-asym-left { padding-right: 7vw; }
+  }
+  /* Essentials grid vertical dividers */
+  @media (min-width: 1024px){
+    .essence-cell + .essence-cell { border-left: 1px solid #EAE7E1; }
+  }
+  /* Amenities grid internal hairlines */
+  .amenity-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 768px){
+    .amenity-grid { grid-template-columns: 1fr 1fr; }
+    .amenity-grid > div:nth-child(odd) { border-right: 1px solid #EAE7E1; }
+    .amenity-grid > div:nth-child(1),
+    .amenity-grid > div:nth-child(2) { border-bottom: 1px solid #EAE7E1; }
+  }
+</style>
+</head>
+<body class="bg-canvas text-ink antialiased">
+
+  <!-- Site Header -->
+  <header id="site-header" class="fixed top-0 left-0 w-full z-40 bg-canvas/90 backdrop-blur-[8px] border-b border-hairline transition-all duration-300">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-14">
+      <div class="h-[72px] md:h-[84px] flex items-center justify-between">
+        <a href="#" class="flex items-baseline gap-6">
+          <span class="display text-[22px] md:text-[24px] tracking-[-0.01em]">AZAHAR</span>
+          <span class="eyebrow text-[10px] hidden sm:inline text-muted">Marrakech — Medina</span>
+        </a>
+        <nav class="hidden lg:flex items-center gap-11 text-[13px] font-[400] tracking-wide text-[#3d3a36]">
+          <a href="#suites" class="hover:text-brass transition-colors">Suites</a>
+          <a href="#philosophy" class="hover:text-brass transition-colors">Philosophy</a>
+          <a href="#amenities" class="hover:text-brass transition-colors">Amenities</a>
+          <a href="#journal" class="hover:text-brass transition-colors">Journal</a>
+        </nav>
+        <div class="flex items-center gap-7">
+          <button id="openReserve" class="eyebrow text-[11px] text-ink hover:text-brass transition-colors hidden md:block">Reserve</button>
+          <button id="mobileMenuBtn" class="lg:hidden w-9 h-9 flex flex-col items-end justify-center gap-[6px]" aria-label="Open menu">
+            <span class="block w-6 h-px bg-ink"></span>
+            <span class="block w-4 h-px bg-ink"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="fixed inset-0 z-[60] bg-canvas hidden">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-14">
+      <div class="h-[72px] flex items-center justify-between border-b border-hairline">
+        <span class="display text-[22px]">AZAHAR</span>
+        <button id="closeMobileMenu" class="text-[12px] uppercase tracking-widest text-muted">Close</button>
+      </div>
+      <nav class="pt-16 pb-12 space-y-7 text-[30px] display">
+        <a href="#suites" class="block menu-link">Suites</a>
+        <a href="#philosophy" class="block menu-link">Philosophy</a>
+        <a href="#amenities" class="block menu-link">Amenities</a>
+        <a href="#arrival" class="block menu-link">The Arrival</a>
+        <a href="#inquire" class="block menu-link">Inquire</a>
+      </nav>
+      <div class="border-t border-hairline pt-8 text-[13px] text-muted font-light">
+        <p>12 Derb El Bahia<br>Kaât Benahid, Marrakech Medina</p>
+        <p class="mt-4">contact@riadazahar.ma<br>+212 524 38 14 20</p>
+      </div>
+    </div>
+  </div>
+
+  <main class="pt-[72px] md:pt-[84px]">
+    <!-- [BLOCK 1: EDITORIAL HERO HEADER] -->
+    <section class=" bg-canvas">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-14 py-16 md:py-20 lg:py-[100px]">
+        <div class="grid grid-cols-12 gap-y-12 lg:gap-x-10 items-center">
+          <!-- Left Copy -->
+          <div class="col-span-12 lg:col-span-7 hero-asym-left reveal in">
+            <p class="eyebrow mb-7">A Private Riad — Medina Quarter</p>
+            <h1 class="display text-[44px] sm:text-[58px] lg:text-[72px] xl:text-[82px] leading-[1.06] tracking-[-0.022em] text-ink max-w-[640px]">
+              An Oasis of Timeless Serenity Hidden Within the Red City.
+            </h1>
+            <p class="mt-8 md:mt-10 max-w-[490px] text-[16.5px] md:text-[17px] leading-relaxed text-[#3a3733] font-light">
+              Behind an unassuming cedar door in the heart of the Medina lies a cooling inner marble courtyard, whispering fountains, and the soft perfume of orange blossoms. Seven grand suites, one quiet house.
+            </p>
+            <div class="mt-10 md:mt-12 flex flex-wrap items-center gap-8">
+              <button id="openReserveHero" class="btn-primary">
+                Reserve your sanctuary <span aria-hidden="true">→</span>
+              </button>
+              <a href="#suites" class="text-[13.5px] text-[#4a4642] link-fine">Explore the house</a>
+            </div>
+            <div class="mt-12 md:mt-16 flex items-center gap-10 text-[12.5px] text-muted">
+              <span>Marrakech, Morocco</span>
+              <span class="w-10 h-px bg-hairline"></span>
+              <span>Est. 1684 — Rest. 2019</span>
+            </div>
+          </div>
+          <!-- Right Image -->
+          <div class="col-span-12 lg:col-span-5 relative reveal" style="transition-delay:.12s">
+            <div class="relative ml-auto w-full max-w-[500px]">
+              <div class="aspect-[4/5.45] overflow-hidden bg-[#efe9e2]">
+                <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1000&q=80" alt="Quiet sunlit Riad courtyard in Marrakech with tadelakt walls and a reflection pool" class="w-full h-full object-cover" loading="eager">
+              </div>
+              <!-- Side annotation -->
+              <div class="hidden xl:block absolute -left-16 top-[45%] -rotate-90 origin-center">
+                <span class="eyebrow text-[10.5px] tracking-[0.22em] text-muted">Courtyard — Central Pool</span>
+              </div>
+            </div>
+            <!-- Small floating note -->
+            <div class="absolute -bottom-6 -left-3 md:-left-8 bg-canvas border border-hairline px-5 py-4 shadow-[0_14px_40px_rgba(0,0,0,0.055)] max-w-[230px]">
+              <p class="eyebrow text-[10px] mb-1">Private Access</p>
+              <p class="text-[13.5px] font-light text-[#3b3834] leading-snug">Escorted arrival from Bab Laksour. Unmarked.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [BLOCK 2: COURTYARD METRICS (THE ESSENCE GRID)] -->
+    <section class="border-y border-hairline bg-white reveal">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-14">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- Item 1 -->
+          <div class="essence-cell py-9 md:py-12 lg:py-14 pr-6">
+            <div class="flex items-baseline gap-3">
+              <span class="display text-[44px] md:text-[52px] leading-none text-ink">07</span>
+              <span class="text-brass text-lg">✦</span>
+            </div>
+            <p class="eyebrow mt-4 text-[10.8px]">Private Grand Suites</p>
+            <p class="mt-2 text-[13.5px] text-muted font-light">Each with open-sky bath and cedar alcove.</p>
+          </div>
+          <!-- Item 2 -->
+          <div class="essence-cell py-9 md:py-12 lg:py-14 lg:px-10 border-t sm:border-t-0 border-hairline">
+            <div class="flex items-baseline gap-3">
+              <span class="display text-[44px] md:text-[52px] leading-none text-ink">17th</span>
+              <span class="text-brass text-lg">◈</span>
+            </div>
+            <p class="eyebrow mt-4 text-[10.8px]">Century Restored Architecture</p>
+            <p class="mt-2 text-[13.5px] text-muted font-light">Hand-chiseled zellige, lime tadelakt.</p>
+          </div>
+          <!-- Item 3 -->
+          <div class="essence-cell py-9 md:py-12 lg:py-14 lg:px-10 border-t lg:border-t-0 border-hairline">
+            <div class="flex items-baseline gap-3">
+              <span class="display text-[44px] md:text-[52px] leading-none text-ink">01</span>
+              <span class="text-brass text-lg">◎</span>
+            </div>
+            <p class="eyebrow mt-4 text-[10.8px]">Central Marble Reflection Pool</p>
+            <p class="mt-2 text-[13.5px] text-muted font-light">Carrara & local Bejmat, courtyard cooled.</p>
+          </div>
+          <!-- Item 4 -->
+          <div class="essence-cell py-9 md:py-12 lg:py-14 lg:pl-10 border-t lg:border-t-0 border-hairline">
+            <div class="flex items-baseline gap-3">
+              <span class="display text-[44px] md:text-[52px] leading-none text-ink">24/7</span>
+              <span class="text-brass text-lg">❋</span>
+            </div>
+            <p class="eyebrow mt-4 text-[10.8px]">Dedicated Butler Attendance</p>
+            <p class="mt-2 text-[13.5px] text-muted font-light">Discrete, house-trained, one per suite.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [BLOCK 3: THE PRIVATE SUITES & ARCHITECTURAL SPACES] -->
+    <section id="suites" class="bg-canvas">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-14 py-24 md:py-28 lg:py-[132px]">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-16 md:mb-24 reveal">
+          <div>
+            <p class="eyebrow mb-4">The Spaces</p>
+            <h2 class="display text-[42px] md:text-[54px] lg:text-[60px]">Private Suites & Architectural Spaces</h2>
+          </div>
+          <p class="max-w-[320px] text-[14.5px] text-muted font-light">A house of three floors, built around silence and shade. Limestone, cedar, brass.</p>
+        </div>
+
+        <!-- Row 1: Courtyard Suites -->
+        <div class="grid grid-cols-12 gap-y-10 lg:gap-x-16 items-center mb-20 md:mb-28 reveal">
+          <div class="col-span-12 lg:col-span-7">
+            <div class="aspect-[5/4] overflow-hidden bg-[#ece6de]">
+              <img src="https://images.unsplash.com/photo-1506374322094-6021face62bf?auto=format&fit=crop&w=1400&q=80" alt="Calm, warm-toned suite interior with natural textures" class="w-full h-full object-cover" loading="lazy">
+            </div>
+          </div>
+          <div class="col-span-12 lg:col-span-5 lg:pl-6">
+            <p class="eyebrow text-brass mb-3">01 — Ground Floor</p>
+            <h3 class="display text-[34px] md:text-[40px] mb-4">The Courtyard Suites</h3>
+            <p class="text-[16px] leading-relaxed text-[#3b3834] font-light max-w-[420px]">
+              Private alcoves tucked off the marble courtyard. Hand-chiseled cedarwood doors, low linen sofas, and open-sky zellige bathrooms where afternoon light spills across tadelakt walls.
+            </p>
+            <div class="mt-7 text-[13.5px] text-muted">
+              <p>45 – 62 m² • King Canopy • Courtyard Soaking Tub</p>
+            </div>
+            <div class="mt-8">
+              <a href="#" class="link-fine text-[13.5px]">Discover the Spaces →</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Sky Terrace (reversed) -->
+        <div class="grid grid-cols-12 gap-y-10 lg:gap-x-16 items-center mb-20 md:mb-28 reveal">
+          <div class="col-span-12 lg:col-span-5 order-2 lg:order-1 lg:pr-6">
+            <p class="eyebrow text-brass mb-3">02 — Rooftop</p>
+            <h3 class="display text-[34px] md:text-[40px] mb-4">The Sky Terrace</h3>
+            <p class="text-[16px] leading-relaxed text-[#3b3834] font-light max-w-[420px]">
+              Unobstructed sunset vistas over the Medina rooftops to the Atlas Mountains. Candlelit lounge bays, olive trees in terracotta, and a slow, private dinner service under the stars.
+            </p>
+            <div class="mt-7 text-[13.5px] text-muted">
+              <p>Sunset Aperitivo • Private Dining • Atlas View</p>
+            </div>
+            <div class="mt-8">
+              <a href="#" class="link-fine text-[13.5px]">Discover the Spaces →</a>
+            </div>
+          </div>
+          <div class="col-span-12 lg:col-span-7 order-1 lg:order-2">
+            <div class="aspect-[5/4] overflow-hidden bg-[#e8e1d8]">
+              <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1400&q=80" alt="Rooftop terrace at dusk with warm lanterns" class="w-full h-full object-cover" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Hammam -->
+        <div class="grid grid-cols-12 gap-y-10 lg:gap-x-16 items-center reveal">
+          <div class="col-span-12 lg:col-span-7">
+            <div class="aspect-[5/4] overflow-hidden bg-[#dfe6e2]">
+              <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" alt="Serene spa interior with smooth plaster walls" class="w-full h-full object-cover" loading="lazy">
+            </div>
+          </div>
+          <div class="col-span-12 lg:col-span-5 lg:pl-6">
+            <p class="eyebrow text-brass mb-3">03 — Subterranean</p>
+            <h3 class="display text-[34px] md:text-[40px] mb-4">The Subterranean Hammam</h3>
+            <p class="text-[16px] leading-relaxed text-[#3b3834] font-light max-w-[420px]">
+              A wellness escape crafted entirely from smooth emerald Tadelakt plaster. Heated stone slabs, eucalyptus steam, and sensory argan oil rituals performed in near silence.
+            </p>
+            <div class="mt-7 text-[13.5px] text-muted">
+              <p>Private Bookings Only • 90 min Rituals • Cool Plunge</p>
+            </div>
+            <div class="mt-8">
+              <a href="#" class="link-fine text-[13.5px]">Discover the Spaces →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [BLOCK 4: THE PHILOSOPHY MANIFESTO] -->
+    <section id="philosophy" class="border-y border-hairline bg-plaster reveal">
+      <div class="max-w-[900px] mx-auto px-6 md:px-10 py-[112px] md:py-[140px] text-center">
+        <p class="eyebrow mb-8">Philosophy</p>
+        <blockquote class="display italic text-[30px] sm:text-[36px] md:text-[44px] lg:text-[48px] leading-[1.32] text-[#22201d]">
+          “We believe true luxury is the absence of noise. At Azahar, hospitality is private, unhurried, and entirely yours — a slow return to texture, shadow, and still water in the heart of the Red City.”
+        </blockquote>
+        <p class="mt-10 text-[13.5px] text-muted">— Lina El Mansouri, Custodian</p>
+      </div>
+    </section>
+
+    <!-- [BLOCK 5: BESPOKE AMENITIES (THE VALUE FRAMEWORK)] -->
+    <section id="amenities" class="bg-canvas">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-14 py-24 md:py-28 lg:py-[124px]">
+        <div class="max-w-[560px] mb-14 md:mb-20 reveal">
+          <p class="eyebrow mb-4">Bespoke Amenities</p>
+          <h2 class="display text-[42px] md:text-[54px]">A framework for quiet indulgence.</h2>
+        </div>
+
+        <div class="border border-hairline amenity-grid reveal">
+          <!-- Amenity 1 -->
+          <div class="px-8 md:px-12 py-12 md:py-16">
+            <div class="text-brass text-xl mb-4">✦</div>
+            <h3 class="display text-[26px] mb-3">Private Airport Concierge & Medina Escort</h3>
+            <p class="text-[15.5px] text-[#3b3834] font-light leading-relaxed max-w-[420px]">
+              Met airside in Marrakech. Private transfer to the edge of the Medina, then escorted on foot through our quiet lanes to the unmarked riad door.
+            </p>
+          </div>
+          <!-- Amenity 2 -->
+          <div class="px-8 md:px-12 py-12 md:py-16 border-t md:border-t-0 border-hairline">
+            <div class="text-brass text-xl mb-4">◈</div>
+            <h3 class="display text-[26px] mb-3">Customized Gastronomy</h3>
+            <p class="text-[15.5px] text-[#3b3834] font-light leading-relaxed max-w-[420px]">
+              Traditional Moroccan reimagined — daily market produce, courtyard breakfasts, and late candlelit dinners crafted by our private chef.
+            </p>
+          </div>
+          <!-- Amenity 3 -->
+          <div class="px-8 md:px-12 py-12 md:py-16 border-t border-hairline">
+            <div class="text-brass text-xl mb-4">◎</div>
+            <h3 class="display text-[26px] mb-3">Privileged Access</h3>
+            <p class="text-[15.5px] text-[#3b3834] font-light leading-relaxed max-w-[420px]">
+              Curated Souk itineraries with our house antiquarian, private atelier visits, and Agafay Desert excursions at golden hour.
+            </p>
+          </div>
+          <!-- Amenity 4 -->
+          <div class="px-8 md:px-12 py-12 md:py-16 border-t border-hairline">
+            <div class="text-brass text-xl mb-4">❋</div>
+            <h3 class="display text-[26px] mb-3">Tailored Wellness</h3>
+            <p class="text-[15.5px] text-[#3b3834] font-light leading-relaxed max-w-[420px]">
+              Sensory Argan Oil massage, private aromatherapy blending, and sunrise yoga on the terrace. All in-suite or in the hammam, by appointment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [BLOCK 6: THE ARRIVAL PIPELINE (STEP-BY-STEP SERVICE)] -->
+    <section id="arrival" class="border-y border-hairline bg-plaster">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-14 py-24 md:py-28">
+        <p class="eyebrow mb-10 reveal">The Arrival Pipeline</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-10 lg:gap-16">
+          <!-- Step 1 -->
+          <div class="reveal">
+            <div class="display text-[56px] md:text-[68px] text-brass/90 leading-none mb-6">01</div>
+            <h4 class="display text-[24px] mb-3">Bespoke Selection</h4>
+            <p class="text-[15px] text-[#3b3834] font-light leading-relaxed max-w-[320px]">
+              Choosing your dedicated suite layout. Courtyard ground, light-filled first floor, or the private rooftop pavilion.
+            </p>
+          </div>
+          <!-- Step 2 -->
+          <div class="reveal" style="transition-delay:.08s">
+            <div class="display text-[56px] md:text-[68px] text-brass/90 leading-none mb-6">02</div>
+            <h4 class="display text-[24px] mb-3">Personalization Curated</h4>
+            <p class="text-[15px] text-[#3b3834] font-light leading-relaxed max-w-[320px]">
+              Tailoring your arrival menu, spa slots, dietary preferences, and local guides before you land in Marrakech.
+            </p>
+          </div>
+          <!-- Step 3 -->
+          <div class="reveal" style="transition-delay:.16s">
+            <div class="display text-[56px] md:text-[68px] text-brass/90 leading-none mb-6">03</div>
+            <h4 class="display text-[24px] mb-3">The Medina Welcome</h4>
+            <p class="text-[15px] text-[#3b3834] font-light leading-relaxed max-w-[320px]">
+              Traditional mint tea pouring ceremony upon entering the riad gates. Luggage disappears. Silence arrives.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- [BLOCK 7: THE FINAL INQUIRY CONVERSION & FOOTER] -->
+    <section id="inquire" class="bg-plaster">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-14 py-24 md:py-28 lg:py-[120px]">
+        <div class="grid grid-cols-12 gap-y-16 lg:gap-x-20 items-start">
+          <!-- Left copy -->
+          <div class="col-span-12 lg:col-span-5 reveal">
+            <p class="eyebrow mb-5">Inquiry</p>
+            <h2 class="display text-[46px] md:text-[58px] leading-[1.08]">Begin Your Marrakesh Narrative.</h2>
+            <p class="mt-6 text-[16px] text-[#403d39] font-light max-w-[380px] leading-relaxed">
+              Seven suites only. Stays of three nights or more are preferred, allowing time to truly settle into the rhythm of the house.
+            </p>
+
+            <div class="mt-10 border-t border-[#ddd8cf] pt-8 text-[14px] text-[#4a4642] font-light space-y-2">
+              <p><span class="text-muted">Direct:</span> contact@riadazahar.ma</p>
+              <p><span class="text-muted">Private line:</span> +212 524 38 14 20</p>
+              <p class="pt-2">
+                <a href="https://wa.me/212524381420" target="_blank" rel="noopener" class="link-fine text-[13.5px]">Message us on WhatsApp →</a>
+              </p>
+            </div>
+
+            <div class="mt-10 text-[12.5px] text-muted leading-relaxed max-w-[340px]">
+              Response within 6 hours, Marrakech time (GMT+1). For same-week reservations, please call.
+            </div>
+          </div>
+
+          <!-- Right form -->
+          <div class="col-span-12 lg:col-span-7 reveal" style="transition-delay:.08s">
+            <form id="inquiryForm" class="bg-canvas border border-hairline px-7 md:px-12 py-10 md:py-14 shadow-[0_18px_60px_rgba(28,24,20,0.045)]" novalidate>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-9">
+                <div>
+                  <label class="eyebrow text-[10.5px]" for="f_name">Full Name</label>
+                  <input class="input-minimal" id="f_name" name="name" placeholder="Your name" required />
+                </div>
+                <div>
+                  <label class="eyebrow text-[10.5px]" for="f_email">Email</label>
+                  <input class="input-minimal" id="f_email" name="email" type="email" placeholder="name@email.com" required />
+                </div>
+                <div>
+                  <label class="eyebrow text-[10.5px]" for="f_arrival">Arrival Window</label>
+                  <input class="input-minimal" id="f_arrival" name="arrival" type="text" placeholder="e.g. March 12 — 16" />
+                </div>
+                <div>
+                  <label class="eyebrow text-[10.5px]" for="f_guests">Guests</label>
+                  <select id="f_guests" name="guests" class="input-minimal bg-transparent cursor-pointer">
+                    <option>1 Guest</option>
+                    <option selected>2 Guests</option>
+                    <option>3 Guests</option>
+                    <option>4+ Guests</option>
+                  </select>
+                </div>
+                <div class="md:col-span-2">
+                  <label class="eyebrow text-[10.5px]" for="f_notes">Notes</label>
+                  <input class="input-minimal" id="f_notes" name="notes" placeholder="Suite preference, occasion, dietary needs…" />
+                </div>
+              </div>
+
+              <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
+                <button type="submit" class="btn-primary">
+                  Send Inquiry <span aria-hidden="true">→</span>
+                </button>
+                <p id="formNote" class="text-[12.5px] text-muted">We never share your details. <br class="hidden sm:block">Encrypted, direct to our host desk.</p>
+              </div>
+            </form>
+            <p class="mt-5 text-[12px] text-muted px-2">Minimum stay: 2 nights. Peak season: 3 nights. Full buyout available.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <footer class="border-t border-hairline">
+        <div class="max-w-[1200px] mx-auto px-6 md:px-10 lg:px-14 py-14 md:py-16">
+          <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12">
+            <div>
+              <div class="display text-[26px] mb-3">AZAHAR</div>
+              <p class="text-[13.5px] text-muted font-light leading-relaxed">
+                12 Derb El Bahia, Kaât Benahid<br>
+                Marrakech Medina 40000, Morocco
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-x-12 gap-y-4 text-[12.5px] text-[#4a4642]">
+              <a href="#" class="hover:text-brass transition-colors">Instagram</a>
+              <a href="#" id="journal" class="hover:text-brass transition-colors">Journal</a>
+              <a href="#" class="hover:text-brass transition-colors">Press Kit</a>
+              <a href="#" class="hover:text-brass transition-colors">Privacy</a>
+              <a href="#" class="hover:text-brass transition-colors">Terms</a>
+            </div>
+            <div class="text-[12px] text-muted">
+              © <span id="year"></span> Riad Azahar.<br>Quiet Hospitality.
+            </div>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Reservation Drawer / Modal -->
+  <div id="reserveModal" class="fixed inset-0 z-[70] hidden" aria-hidden="true">
+    <div id="reserveBackdrop" class="absolute inset-0 bg-[#181511]/50 backdrop-blur-[2px]"></div>
+    <div class="absolute right-0 top-0 h-full w-full max-w-[520px] bg-canvas shadow-2xl border-l border-hairline overflow-y-auto translate-x-full transition-transform duration-500 ease-[cubic-bezier(.2,.8,.2,1)]" id="reservePanel" role="dialog" aria-modal="true" aria-label="Reserve your sanctuary">
+      <div class="px-8 md:px-12 py-10 md:py-12">
+        <div class="flex justify-between items-start">
+          <div>
+            <p class="eyebrow mb-2">Reservation Request</p>
+            <h3 class="display text-[34px]">Reserve Your Sanctuary</h3>
+          </div>
+          <button id="closeReserve" class="text-[11px] uppercase tracking-widest text-muted hover:text-ink pt-2">Close</button>
+        </div>
+        <p class="mt-4 text-[14.5px] text-[#3f3b36] font-light">Seven suites. Direct booking with our house manager. No booking engines.</p>
+
+        <form id="reserveForm" class="mt-10 space-y-7">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-7">
+            <div>
+              <label class="eyebrow text-[10.5px]" for="r_checkin">Check-in</label>
+              <input type="date" id="r_checkin" class="input-minimal" required />
+            </div>
+            <div>
+              <label class="eyebrow text-[10.5px]" for="r_checkout">Check-out</label>
+              <input type="date" id="r_checkout" class="input-minimal" required />
+            </div>
+          </div>
+          <div>
+            <label class="eyebrow text-[10.5px]" for="r_suite">Preferred Suite</label>
+            <select id="r_suite" class="input-minimal bg-transparent">
+              <option>Courtyard Suite — Orange Blossom</option>
+              <option>Courtyard Suite — Cedar</option>
+              <option>First Floor — Zellige Light</option>
+              <option>First Floor — Atlas View</option>
+              <option>Grand Suite — Tadelakt</option>
+              <option>Rooftop Pavilion — Azahar</option>
+              <option>Advise me</option>
+            </select>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-7">
+            <div>
+              <label class="eyebrow text-[10.5px]" for="r_name_r">Name</label>
+              <input id="r_name_r" class="input-minimal" placeholder="Full name" required />
+            </div>
+            <div>
+              <label class="eyebrow text-[10.5px]" for="r_email_r">Email</label>
+              <input id="r_email_r" type="email" class="input-minimal" placeholder="name@email.com" required />
+            </div>
+          </div>
+          <div>
+            <label class="eyebrow text-[10.5px]" for="r_message">Message</label>
+            <input id="r_message" class="input-minimal" placeholder="Occasion, preferences…" />
+          </div>
+          <div class="pt-3 flex items-center gap-6">
+            <button type="submit" class="btn-primary brass">Submit Request</button>
+            <a href="https://wa.me/212524381420" target="_blank" rel="noopener" class="text-[12.5px] link-fine">Or WhatsApp us</a>
+          </div>
+          <p class="text-[12px] text-muted pt-1">A 30% deposit secures your dates. Flexible cancellation up to 14 days prior.</p>
+          <p id="reserveSuccess" class="hidden text-[13.5px] text-[#2d6a4f]">Thank you. Your request has been sent to our host desk. We will reply within 6 hours.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-ink text-white text-[12.5px] tracking-wide px-5 py-3 rounded-full shadow-xl opacity-0 pointer-events-none transition-opacity duration-300 z-[80]">
+    Inquiry sent — we will be in touch shortly.
+  </div>
+
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Header shrink on scroll
+  const header = document.getElementById('site-header');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 12){
+      header.classList.add('shadow-[0_1px_0_#EAE7E1]');
+    } else {
+      header.classList.remove('shadow-[0_1px_0_#EAE7E1]');
+    }
+  });
+
+  // Mobile menu
+  const mobileMenu = document.getElementById('mobileMenu');
+  document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+    mobileMenu.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  });
+  document.getElementById('closeMobileMenu').addEventListener('click', closeMobileMenu);
+  mobileMenu.querySelectorAll('.menu-link').forEach(a => a.addEventListener('click', closeMobileMenu));
+  function closeMobileMenu(){
+    mobileMenu.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  // Reservation modal
+  const reserveModal = document.getElementById('reserveModal');
+  const reservePanel = document.getElementById('reservePanel');
+  function openReserve(){
+    reserveModal.classList.remove('hidden');
+    reserveModal.setAttribute('aria-hidden','false');
+    requestAnimationFrame(()=> reservePanel.classList.remove('translate-x-full'));
+    document.body.style.overflow = 'hidden';
+  }
+  function closeReserve(){
+    reservePanel.classList.add('translate-x-full');
+    setTimeout(()=>{
+      reserveModal.classList.add('hidden');
+      reserveModal.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
+    }, 320);
+  }
+  document.getElementById('openReserve')?.addEventListener('click', openReserve);
+  document.getElementById('openReserveHero')?.addEventListener('click', openReserve);
+  document.getElementById('closeReserve').addEventListener('click', closeReserve);
+  document.getElementById('reserveBackdrop').addEventListener('click', closeReserve);
+  document.addEventListener('keydown', e => { if(e.key === 'Escape') { closeReserve(); closeMobileMenu(); } });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Inquiry form
+  const inquiryForm = document.getElementById('inquiryForm');
+  const formNote = document.getElementById('formNote');
+  inquiryForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const fd = new FormData(inquiryForm);
+    if(!fd.get('name') || !fd.get('email')){
+      formNote.textContent = 'Please add your name and email.';
+      formNote.classList.add('text-[#b4533d]');
+      return;
+    }
+    formNote.classList.remove('text-[#b4533d]');
+    showToast('Inquiry sent — we will be in touch shortly.');
+    inquiryForm.reset();
+    formNote.textContent = 'Received. Our host desk will respond within 6 hours.';
+  });
+
+  // Reserve form
+  document.getElementById('reserveForm').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    document.getElementById('reserveSuccess').classList.remove('hidden');
+    showToast('Reservation request received.');
+    setTimeout(closeReserve, 1400);
+  });
+
+  function showToast(msg){
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.style.opacity = '1';
+    setTimeout(()=> t.style.opacity = '0', 2600);
+  }
+
+  // Smooth anchor offset for fixed header
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click', function(e){
+      const id = this.getAttribute('href');
+      if(id.length > 1){
+        const target = document.querySelector(id);
+        if(target){
+          e.preventDefault();
+          const y = target.getBoundingClientRect().top + window.scrollY - 78;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>
+</body>
+</html>
