@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# /thankyou  ->  /thankyou.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^thankyou/?$ thankyou.html [L]

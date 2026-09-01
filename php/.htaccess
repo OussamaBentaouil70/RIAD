@@ -1,0 +1,11 @@
+# Block direct web access to secrets and config files.
+# Without this, a request to https://yourdomain.com/php/.env would
+# serve the raw file — including the SMTP password — in plain text.
+
+<FilesMatch "^\.env">
+    Require all denied
+</FilesMatch>
+
+<FilesMatch "^composer\.(json|lock)$">
+    Require all denied
+</FilesMatch>

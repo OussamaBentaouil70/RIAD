@@ -7,194 +7,121 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  color: #161616;
-  background: #FFFFFF;
+  font-family: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: #3D2B34;
+  background: #FFF9F6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-weight: 300;
-  letter-spacing: 0.01em;
-  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.7;
 }
 
 ::selection {
-  background: rgba(197, 168, 128, 0.22);
+  background: rgba(232, 125, 160, 0.22);
 }
 
 .display {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.02em;
+  font-weight: 500;
+  letter-spacing: 0;
   line-height: 1.15;
 }
 
 .eyebrow {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Jost', sans-serif;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.15em;
   font-size: 0.72rem;
-  color: #6b6761;
+  color: #7A5C68;
 }
 
 .btn-primary {
   display: inline-flex;
   align-items: center;
-  gap: 14px;
-  border: 1px solid #161616;
-  background: transparent;
-  color: #161616;
-  padding: 16px 30px;
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
-  font-size: 0.72rem;
+  gap: 12px;
+  border: none;
+  background: #E87DA0;
+  color: #FFFFFF;
+  padding: 16px 36px;
+  border-radius: 99px;
+  font-size: 0.95rem;
   font-weight: 500;
-  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: rgba(232, 125, 160, 0.38) 0px 8px 28px 0px;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .btn-primary:hover {
-  background: #161616;
-  color: #fff;
+  opacity: 0.85;
 }
 
-.btn-primary.brass {
-  border-color: #C5A880;
-  color: #161616;
+.btn-primary:active {
+  opacity: 0.75;
 }
 
-.btn-primary.brass:hover {
-  background: #C5A880;
-  color: #fff;
-  border-color: #C5A880;
-}
-
-.btn-primary-white {
+.btn-secondary {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  gap: 12px;
+  border: none;
   background: transparent;
-  color: #fff;
+  color: #3D2B34;
   padding: 16px 30px;
-  text-transform: uppercase;
-  letter-spacing: 0.13em;
-  font-size: 0.72rem;
+  border-radius: 99px;
+  font-size: 0.95rem;
   font-weight: 500;
-  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
-.btn-primary-white:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: #C5A880;
-  color: #C5A880;
+.btn-secondary:hover {
+  background: rgba(232, 125, 160, 0.15);
+}
+
+.btn-secondary:active {
+  background: rgba(232, 125, 160, 0.25);
 }
 
 .link-fine {
   position: relative;
   display: inline-block;
-  padding-bottom: 4px;
-  transition: color 0.3s ease;
+  color: #7A5C68;
+  font-weight: 500;
   text-decoration: none;
-}
-
-.link-fine::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: #161616;
-  transition: width 0.35s ease, background-color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 .link-fine:hover {
-  color: #C5A880;
+  color: #E87DA0;
+  text-decoration: underline;
 }
 
-.link-fine:hover::after {
-  width: 42%;
-  background: #C5A880;
+.card-blush {
+  background: #FDE8EE;
+  border: 1px solid rgba(249, 168, 196, 0.3);
+  border-radius: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.link-fine-white {
-  position: relative;
-  display: inline-block;
-  padding-bottom: 4px;
-  transition: color 0.3s ease;
-  text-decoration: none;
+.card-blush:hover {
+  border-color: rgba(232, 125, 160, 0.5);
+  box-shadow: rgba(200, 100, 140, 0.08) 0px 4px 20px 0px;
 }
 
-.link-fine-white::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.6);
-  transition: width 0.35s ease, background-color 0.3s ease;
+.card-clean {
+  background: #FFF9F6;
+  border: 1px solid rgba(249, 168, 196, 0.28);
+  border-radius: 18px;
+  box-shadow: rgba(61, 43, 52, 0.08) 0px 10px 28px 0px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
 }
 
-.link-fine-white:hover {
-  color: #C5A880;
-}
-
-.link-fine-white:hover::after {
-  width: 42%;
-  background: #C5A880;
-}
-
-.input-minimal {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid #D7D2C9;
-  padding: 14px 2px;
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: #161616;
-  outline: none;
-  transition: border-color 0.25s ease;
-  font-family: 'Inter', system-ui, sans-serif;
-}
-
-.input-minimal::placeholder {
-  color: #9a9590;
-}
-
-.input-minimal:focus {
-  border-bottom-color: #C5A880;
-}
-
-.input-minimal-white {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  padding: 14px 2px;
-  font-size: 0.95rem;
-  font-weight: 300;
-  color: #fff;
-  outline: none;
-  transition: border-color 0.25s ease;
-  font-family: 'Inter', system-ui, sans-serif;
-}
-
-.input-minimal-white::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.input-minimal-white:focus {
-  border-bottom-color: #C5A880;
-}
-
-.input-minimal-white option {
-  background: #161616;
-  color: #fff;
+.card-clean:hover {
+  border-color: rgba(232, 125, 160, 0.4);
+  box-shadow: rgba(200, 100, 140, 0.14) 0px 20px 60px 0px;
 }
 
 .reveal {
@@ -208,34 +135,147 @@ body {
   transform: translateY(0);
 }
 
-@media (min-width: 1024px) {
-  .hero-asym-left {
-    padding-right: 7vw;
-  }
+/* ─── Form fields ─── */
+.field-label {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  margin-bottom: 8px;
 }
 
-@media (min-width: 1024px) {
-  .essence-cell + .essence-cell {
-    border-left: 1px solid #EAE7E1;
-  }
+.field-input,
+.field-textarea {
+  width: 100%;
+  background: #FFF9F6;
+  border: 1px solid rgba(249, 168, 196, 0.5);
+  border-radius: 10px;
+  padding: 13px 16px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.96rem;
+  color: #3D2B34;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
 
-.amenity-grid {
+.field-input::placeholder,
+.field-textarea::placeholder {
+  color: rgba(122, 92, 104, 0.55);
+}
+
+.field-input:focus,
+.field-textarea:focus {
+  border-color: #E87DA0;
+  box-shadow: 0 0 0 3px rgba(232, 125, 160, 0.15);
+}
+
+.field-textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+
+.field-error {
+  border-color: #D14565 !important;
+  box-shadow: 0 0 0 3px rgba(209, 69, 101, 0.15) !important;
+}
+
+.field-error-text {
+  margin-top: 6px;
+  font-size: 0.76rem;
+  color: #D14565;
+}
+
+/* Dark-variant fields (hero glass card, over the photo) */
+.field-input--dark,
+.field-textarea--dark {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.field-input--dark::placeholder,
+.field-textarea--dark::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.field-input--dark:focus,
+.field-textarea--dark:focus {
+  border-color: #F9A8C4;
+  box-shadow: 0 0 0 3px rgba(249, 168, 196, 0.2);
+}
+
+/* ─── react-phone-number-input overrides ─── */
+.PhoneInput {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFF9F6;
+  border: 1px solid rgba(249, 168, 196, 0.5);
+  border-radius: 10px;
+  padding: 0 14px;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.PhoneInput:focus-within {
+  border-color: #E87DA0;
+  box-shadow: 0 0 0 3px rgba(232, 125, 160, 0.15);
+}
+
+.PhoneInput--error {
+  border-color: #D14565;
+}
+
+.PhoneInputInput {
+  border: none;
+  background: transparent;
+  outline: none;
+  padding: 13px 2px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.96rem;
+  color: #3D2B34;
+}
+
+.PhoneInputInput::placeholder {
+  color: rgba(122, 92, 104, 0.55);
+}
+
+.PhoneInputCountrySelect {
+  cursor: pointer;
+}
+
+.PhoneInputCountryIcon {
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.PhoneInput--dark {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.PhoneInput--dark:focus-within {
+  border-color: #F9A8C4;
+  box-shadow: 0 0 0 3px rgba(249, 168, 196, 0.2);
+}
+
+.PhoneInput--dark .PhoneInputInput {
+  color: #fff;
+}
+
+.PhoneInput--dark .PhoneInputInput::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.PhoneInput--dark .PhoneInputCountrySelectArrow {
+  color: #fff;
+  opacity: 0.7;
+}
+
+.faq-grid {
   display: grid;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 768px) {
-  .amenity-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .amenity-grid > div:nth-child(odd) {
-    border-right: 1px solid #EAE7E1;
-  }
-  .amenity-grid > div:nth-child(1),
-  .amenity-grid > div:nth-child(2) {
-    border-bottom: 1px solid #EAE7E1;
-  }
+  gap: 16px;
 }
 
 @keyframes slideInRight {
